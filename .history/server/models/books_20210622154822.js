@@ -14,3 +14,4 @@ let Book = mongoose.Schema({
 
 module.exports = mongoose.model('Book', Book);
 
+ db.books.updateOne({"Title":"Brave New World","Price":"25.99","Author":"Aldous Huxley","Genre":"Science fiction"})

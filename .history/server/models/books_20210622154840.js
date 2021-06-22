@@ -3,7 +3,6 @@ let mongoose = require('mongoose');
 // create a model class
 let Book = mongoose.Schema({
     Title: String,
-    Description: String,
     Price: Number,
     Author: String,
     Genre: String
@@ -14,3 +13,4 @@ let Book = mongoose.Schema({
 
 module.exports = mongoose.model('Book', Book);
 
+ 
