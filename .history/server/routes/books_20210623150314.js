@@ -1,5 +1,4 @@
 // modules required for routing
-const e = require('express');
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -25,40 +24,23 @@ router.get('/', (req, res, next) => {
 });
 
 //  GET the Book Details page in order to add a new Book
-router.get('/details', (req, res, next) => {
+router.get('/add', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
      *****************/
-    res.render('books/details', {title: 'books', books: ''})
+    res.render('books/details', {title: 'Add '})
 
 });
 
 // POST process the Book Details page and create a new Book - CREATE
-router.post('/details', (req, res, next) => {
+router.post('/add', (req, res, next) => {
 
-  /*****************
-   * ADD CODE HERE *
-   *****************/
-  let newBook = book({
-    "Title": req.body.Title,
-    "Price": req.body.Price,
-    "Author": req.body.Author,
-    "Genre": req.body.Genre
-  });
+    /*****************
+     * ADD CODE HERE *
+     *****************/
 
-  book.create(newBook, (err, book) => {
-    if (err) {
-      console.log(err);
-      res.end(err);
-    }
-    else {
-      res.redirect('/books')
-      
-    }
-  });
-    
-  });
+});
 
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {

@@ -35,7 +35,7 @@ router.get('/details', (req, res, next) => {
 });
 
 // POST process the Book Details page and create a new Book - CREATE
-router.post('/details', (req, res, next) => {
+router.post('/details', (req, res, next) => {}
 
   /*****************
    * ADD CODE HERE *
@@ -46,8 +46,7 @@ router.post('/details', (req, res, next) => {
     "Author": req.body.Author,
     "Genre": req.body.Genre
   });
-
-  book.create(newBook, (err, book) => {
+  book.create(newBook, (err, books) => {
     if (err) {
       console.log(err);
       res.end(err);
@@ -56,7 +55,6 @@ router.post('/details', (req, res, next) => {
       res.redirect('/books')
       
     }
-  });
     
   });
 

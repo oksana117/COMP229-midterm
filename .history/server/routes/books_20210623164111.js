@@ -47,7 +47,7 @@ router.post('/details', (req, res, next) => {
     "Genre": req.body.Genre
   });
 
-  book.create(newBook, (err, book) => {
+  Book.create(newBook, (err, books) => {
     if (err) {
       console.log(err);
       res.end(err);

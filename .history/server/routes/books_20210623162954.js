@@ -37,28 +37,29 @@ router.get('/details', (req, res, next) => {
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/details', (req, res, next) => {
 
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+    /*****************
+     * ADD CODE HERE *
+     *****************/
   let newBook = book({
-    "Title": req.body.Title,
-    "Price": req.body.Price,
-    "Author": req.body.Author,
-    "Genre": req.body.Genre
+      "Title": req.body.Title,
+      "Price": req.body.Price,
+      "Author": req.body.Author,
+      "Genre": req.body.Genre
   });
-
-  book.create(newBook, (err, book) => {
-    if (err) {
+  book.create(newBook, (err, books) => {
+    if (err)
+    {
       console.log(err);
       res.end(err);
     }
-    else {
+    else
+    {
       res.redirect('/books')
       
     }
-  });
     
-  });
+  }
+  );
 
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {

@@ -41,10 +41,10 @@ router.post('/details', (req, res, next) => {
    * ADD CODE HERE *
    *****************/
   let newBook = book({
-    "Title": req.body.Title,
-    "Price": req.body.Price,
-    "Author": req.body.Author,
-    "Genre": req.body.Genre
+    "title": req.body.Title,
+    "price": req.body.Price,
+    "author": req.body.Author,
+    "genre": req.body.Genre
   });
 
   book.create(newBook, (err, book) => {

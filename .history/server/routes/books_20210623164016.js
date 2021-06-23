@@ -40,7 +40,7 @@ router.post('/details', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/
-  let newBook = book({
+  let newBook = books({
     "Title": req.body.Title,
     "Price": req.body.Price,
     "Author": req.body.Author,
