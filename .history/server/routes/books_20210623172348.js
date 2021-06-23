@@ -30,7 +30,7 @@ router.get('/details', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    res.render('books/details', {title: 'books', books:''})
+    res.render('books/details', {title: 'books', books: ''})
 
 });
 
@@ -40,28 +40,24 @@ router.post('/details', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/
-  // creates new book with the model object reference 
   let addBook = book({
-    "Title": req.body.Title,
-    "Price": req.body.Price,
-    "Author":req.body.Author,
-    "Genre": req.body.Genre
+    "title": req.body.Title,
+    "price": req.body.Price,
+    "author":req.body.Author,
+    "genre": req.body.Genre
   });
 
   book.create(addBook, (err, book) => {
-    if (err)
-    {
+    if (err) {
       console.log(err);
       res.end(err);
     }
-    else
-    {
+    else {
       res.redirect('/books')
       
-    }
+    }});
+    
   });
-
-});
 
 // GET the Book Details page in order to edit an existing Book
 router.get('/details/:id', (req, res, next) => {
@@ -71,15 +67,16 @@ router.get('/details/:id', (req, res, next) => {
      *****************/
     let id = req.params.id;
 
-    book.findById(id, (err, bookEdit) => {
+    book.findById(id, (err, bookToEdit) => {
         if(err)
         {
             console.log(err);
             res.end(err);
         }
         else
-        { //displays the edits 
-          res.render('books/details', { title: 'books', books: bookEdit })
+        {
+            //show the edit view
+            res.render('books/details', {title: 'books', book: bookToEdit})
         }
     });
 });
@@ -94,10 +91,10 @@ router.post('/details/:id', (req, res, next) => {
 
     let updatedBook = book({
       "_id": id,
-      "Title": req.body.Title,
-      "Price": req.body.Price,
-      "Author":req.body.Author,
-      "Genre": req.body.Genre
+      "title": req.body.Title,
+      "price": req.body.Price,
+      "author":req.body.Author,
+      "genre": req.body.Genre
     });
 
     book.updateOne({_id: id}, updatedBook, (err) => {
@@ -108,8 +105,8 @@ router.post('/details/:id', (req, res, next) => {
         }
         else
         {
-          //redirects to the books page after successful edit
-          res.redirect('/books');
+            // refresh the book list
+            res.redirect('/books');
         }
     });
   
@@ -123,18 +120,18 @@ router.get('/delete/:id', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
   let id = req.params.id;
-  book.remove({ _id: id }, (err) => {
-    
-    if (err)
-    {
-      console.log(err);
-      res.end(err);
-    }
-    else
-    {
-      //refreshes the book list after deletion
-      res.redirect('/books');
-    }
+
+    book.remove({_id: id}, (err) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+             // refresh the book list
+             res.redirect('/books');
+        }
     });
 });
 

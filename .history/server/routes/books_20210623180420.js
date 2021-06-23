@@ -40,7 +40,6 @@ router.post('/details', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/
-  // creates new book with the model object reference 
   let addBook = book({
     "Title": req.body.Title,
     "Price": req.body.Price,
@@ -49,13 +48,11 @@ router.post('/details', (req, res, next) => {
   });
 
   book.create(addBook, (err, book) => {
-    if (err)
-    {
+    if (err) {
       console.log(err);
       res.end(err);
     }
-    else
-    {
+    else {
       res.redirect('/books')
       
     }
@@ -78,8 +75,9 @@ router.get('/details/:id', (req, res, next) => {
             res.end(err);
         }
         else
-        { //displays the edits 
-          res.render('books/details', { title: 'books', books: bookEdit })
+        {
+            //show the edit view
+            res.render('books/details', {title: 'books', books: bookEdit})
         }
     });
 });
@@ -108,7 +106,6 @@ router.post('/details/:id', (req, res, next) => {
         }
         else
         {
-          //redirects to the books page after successful edit
           res.redirect('/books');
         }
     });
@@ -123,18 +120,17 @@ router.get('/delete/:id', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
   let id = req.params.id;
-  book.remove({ _id: id }, (err) => {
-    
-    if (err)
-    {
-      console.log(err);
-      res.end(err);
-    }
-    else
-    {
-      //refreshes the book list after deletion
-      res.redirect('/books');
-    }
+
+    book.remove({_id: id}, (err) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+          res.redirect('/books');
+        }
     });
 });
 

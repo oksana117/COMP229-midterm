@@ -40,7 +40,6 @@ router.post('/details', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/
-  // creates new book with the model object reference 
   let addBook = book({
     "Title": req.body.Title,
     "Price": req.body.Price,
@@ -49,13 +48,11 @@ router.post('/details', (req, res, next) => {
   });
 
   book.create(addBook, (err, book) => {
-    if (err)
-    {
+    if (err) {
       console.log(err);
       res.end(err);
     }
-    else
-    {
+    else {
       res.redirect('/books')
       
     }
@@ -132,9 +129,8 @@ router.get('/delete/:id', (req, res, next) => {
     }
     else
     {
-      //refreshes the book list after deletion
-      res.redirect('/books');
-    }
+          res.redirect('/books');
+        }
     });
 });
 

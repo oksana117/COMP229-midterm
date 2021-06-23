@@ -49,13 +49,13 @@ router.post('/details', (req, res, next) => {
   });
 
   book.create(addBook, (err, book) => {
-    if (err)
-    {
+    if (err) {
       console.log(err);
       res.end(err);
     }
     else
     {
+
       res.redirect('/books')
       
     }

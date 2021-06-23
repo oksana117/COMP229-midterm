@@ -40,7 +40,7 @@ router.post('/details', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/
-  // creates new book with the model object reference 
+  // creates new book 
   let addBook = book({
     "Title": req.body.Title,
     "Price": req.body.Price,
@@ -49,13 +49,11 @@ router.post('/details', (req, res, next) => {
   });
 
   book.create(addBook, (err, book) => {
-    if (err)
-    {
+    if (err) {
       console.log(err);
       res.end(err);
     }
-    else
-    {
+    else {
       res.redirect('/books')
       
     }
