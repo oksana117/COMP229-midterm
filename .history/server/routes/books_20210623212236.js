@@ -1,4 +1,4 @@
-// Oksana Koshulap - 301167025 - COMP 229 Midterm
+// Oksana Koshulap - 301167025
 // modules required for routing
 const e = require('express');
 let express = require('express');

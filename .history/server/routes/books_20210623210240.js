@@ -1,4 +1,3 @@
-// Oksana Koshulap - 301167025 - COMP 229 Midterm
 // modules required for routing
 const e = require('express');
 let express = require('express');
@@ -28,7 +27,9 @@ router.get('/', (req, res, next) => {
 //  GET the Book Details page in order to add a new Book
 router.get('/details', (req, res, next) => {
 
-   
+    /*****************
+     * ADD CODE HERE *
+     *****************/
     res.render('books/details', {title: 'books', books:''})
 
 });
@@ -63,7 +64,9 @@ router.post('/details', (req, res, next) => {
 // GET the Book Details page in order to edit an existing Book
 router.get('/details/:id', (req, res, next) => {
 
-   
+    /*****************
+     * ADD CODE HERE *
+     *****************/
     let id = req.params.id;
 
     book.findById(id, (err, bookEdit) => {
@@ -82,7 +85,9 @@ router.get('/details/:id', (req, res, next) => {
 // POST - process the information passed from the details form and update the document
 router.post('/details/:id', (req, res, next) => {
 
-  
+    /*****************
+     * ADD CODE HERE *
+     *****************/
     let id = req.params.id
 
     let updatedBook = book({
@@ -111,6 +116,10 @@ router.post('/details/:id', (req, res, next) => {
 
 // GET - process the delete by user id
 router.get('/delete/:id', (req, res, next) => {
+
+    /*****************
+     * ADD CODE HERE *
+     *****************/
   let id = req.params.id;
   book.remove({ _id: id }, (err) => {
     

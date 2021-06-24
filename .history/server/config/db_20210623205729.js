@@ -1,4 +1,4 @@
-//Oksana Koshulap - 301167025- COMP229 Midterm 
+//Oksana Koshulap - 3011
 
 module.exports = {
   //local MongoDB deployment ->

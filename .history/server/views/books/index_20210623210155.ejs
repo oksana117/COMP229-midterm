@@ -1,4 +1,4 @@
-<!-- Oksana Koshulap - 301167025 - COMP 229 Midterm -->
+<!-- Oksana Koshulap - 301167025 - COMP 229 Midterm --> 
 <% include ../partials/header.ejs %>
 
     <!-- MAIN CONTENT -->
@@ -6,7 +6,9 @@
       <div class="row">
         <div class="col-md-offset-1 col-md-10">
           <h3>Favourite Books List </h3>
-          <!-- Add Button -->
+          <!-- ------------------------ -->
+          <!-- FIX THE ADD BUTTON BELOW -->
+          <!-- ------------------------ -->
           <a href="/books/details" class="btn btn-primary" role="button"><i class="fa fa-plus"></i> Add a book</a>
           <br>
           <div class="table-responsive">
@@ -34,7 +36,7 @@
                     <a href="/books/details/<%= books[count]._id %>" class="btn btn-primary btn-sm">
                     <i class="fas fa-pencil-alt"></i> Edit</a>
                   </td>
-                 <!-- Delete Button -->
+                  
                   <td class="text-center">
                       <a href="/books/delete/<%= books[count]._id %>" class="btn btn-danger btn-sm">
                       <i class="fas fa-trash-alt"></i> Delete</a>
